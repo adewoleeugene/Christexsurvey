@@ -2,7 +2,6 @@
 
 import { LocateFixed, RotateCcw, Plus, Minus, PanelLeft } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useReportsStore } from "@/store/reports-store";
 
 interface MapControlsProps {
