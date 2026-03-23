@@ -1,9 +1,10 @@
-import { neon, NeonQueryFunction } from "@neondatabase/serverless";
+import { neon } from "@neondatabase/serverless";
 
 const baseSql = neon(process.env.DATABASE_URL!);
 
 /** Wraps neon sql with a single retry on connection failure */
-export const sql: NeonQueryFunction<false, false> = async (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const sql: typeof baseSql = (async (
   strings: TemplateStringsArray,
   ...values: unknown[]
 ) => {
@@ -12,9 +13,8 @@ export const sql: NeonQueryFunction<false, false> = async (
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : String(error);
     if (msg.includes("fetch failed") || msg.includes("ETIMEDOUT")) {
-      // Retry once on cold start timeout
       return await baseSql(strings, ...values);
     }
     throw error;
   }
-};
+}) as typeof baseSql;
