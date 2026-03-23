@@ -10,27 +10,32 @@ import { sendText, sendButtons, sendList } from "./whapi";
 export const QUESTIONS: SurveyStep[] = [
   // SECTION A: BASIC INFORMATION
   {
-    key: "age",
+    key: "name",
     prompt:
-      "*Section A: Basic Information*\n\nQuestion 1 of 16:\nHow old are you?",
+      "*Section A: Basic Information*\n\nQuestion 1 of 17:\nWhat is your name?",
+    type: "text",
+  },
+  {
+    key: "age",
+    prompt: "Question 2 of 17:\nHow old are you?",
     type: "text",
   },
   {
     key: "gender",
-    prompt: "Question 2 of 16:\nWhat is your gender?",
+    prompt: "Question 3 of 17:\nWhat is your gender?",
     type: "choice",
     choices: ["Male", "Female"],
     ui: "buttons",
   },
   {
     key: "community",
-    prompt: "Question 3 of 16:\nWhat is your community or area?",
+    prompt: "Question 4 of 17:\nWhat is your community or area?",
     type: "text",
   },
   {
     key: "occupation",
     prompt:
-      "Question 4 of 16:\nWhat is your occupation? (Student, worker, business, unemployed, etc.)",
+      "Question 5 of 17:\nWhat is your occupation? (Student, worker, business, unemployed, etc.)",
     type: "text",
   },
 
@@ -38,7 +43,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "biggest_problems",
     prompt:
-      "*Section B: Community Challenges*\n\nQuestion 5 of 16:\nWhat are the biggest problems in your community right now?\n\nType the numbers separated by commas (e.g. *1,3,5*)\n\n1. Unemployment\n2. Poverty\n3. Poor education\n4. Poor healthcare\n5. Mental health challenges\n6. Gender-based violence\n7. Drug or substance abuse\n8. Insecurity\n9. Water or sanitation problems\n10. Other",
+      "*Section B: Community Challenges*\n\nQuestion 6 of 17:\nWhat are the biggest problems in your community right now?\n\nType the numbers separated by commas (e.g. *1,3,5*)\n\n1. Unemployment\n2. Poverty\n3. Poor education\n4. Poor healthcare\n5. Mental health challenges\n6. Gender-based violence\n7. Drug or substance abuse\n8. Insecurity\n9. Water or sanitation problems\n10. Other",
     type: "multi_choice",
     choices: [
       "Unemployment",
@@ -56,7 +61,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "most_personal_problem",
     prompt:
-      "Question 6 of 16:\nWhich of these problems affects you the most personally?",
+      "Question 7 of 17:\nWhich of these problems affects you the most personally?",
     type: "text",
   },
 
@@ -64,16 +69,14 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "current_solutions",
     prompt:
-      "*Section C: Current Solutions*\n\nQuestion 7 of 16:\nHow do people currently try to solve this problem?",
-    type: "choice",
+      "*Section C: Current Solutions*\n\nQuestion 8 of 17:\nHow do people currently try to solve this problem?\n\nType the numbers separated by commas (e.g. *1,3*)\n\n1. NGOs\n2. Government help\n3. Family support\n4. Self-effort\n5. None",
+    type: "multi_choice",
     choices: ["NGOs", "Government help", "Family support", "Self-effort", "None"],
-    ui: "list",
-    listButton: "View Options",
   },
   {
     key: "whats_missing",
     prompt:
-      "Question 8 of 16:\nWhat is missing in the current solutions?",
+      "Question 9 of 17:\nWhat is missing in the current solutions?",
     type: "text",
   },
 
@@ -81,7 +84,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "support_needed",
     prompt:
-      "*Section D: Community Needs*\n\nQuestion 9 of 16:\nWhat type of support would make your life easier?\n\nType the numbers separated by commas (e.g. *1,4,6*)\n\n1. Skills training\n2. Job opportunities\n3. Education support\n4. Mental health support\n5. Youth programs\n6. Women and girls support\n7. Business or financial support\n8. Health services\n9. Information or awareness programs\n10. Other",
+      "*Section D: Community Needs*\n\nQuestion 10 of 17:\nWhat type of support would make your life easier?\n\nType the numbers separated by commas (e.g. *1,4,6*)\n\n1. Skills training\n2. Job opportunities\n3. Education support\n4. Mental health support\n5. Youth programs\n6. Women and girls support\n7. Business or financial support\n8. Health services\n9. Information or awareness programs\n10. Other",
     type: "multi_choice",
     choices: [
       "Skills training",
@@ -99,24 +102,22 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "who_needs_most",
     prompt:
-      "Question 10 of 16:\nWho do you think needs this support the most?",
-    type: "choice",
+      "Question 11 of 17:\nWho do you think needs this support the most?\n\nType the numbers separated by commas (e.g. *1,3*)\n\n1. Youth\n2. Women\n3. Men\n4. Children\n5. Everyone",
+    type: "multi_choice",
     choices: ["Youth", "Women", "Men", "Children", "Everyone"],
-    ui: "list",
-    listButton: "View Options",
   },
 
   // SECTION E: PRIORITY & VALUE
   {
     key: "priority_problem",
     prompt:
-      "*Section E: Priority*\n\nQuestion 11 of 16:\nIf only one problem could be solved first, which one should it be?",
+      "*Section E: Priority*\n\nQuestion 12 of 17:\nIf only one problem could be solved first, which one should it be?",
     type: "text",
   },
   {
     key: "why_urgent",
     prompt:
-      "Question 12 of 16:\nWhy is this problem urgent for your community?",
+      "Question 13 of 17:\nWhy is this problem urgent for your community?",
     type: "text",
   },
 
@@ -124,7 +125,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "preferred_channel",
     prompt:
-      "*Section F: Access*\n\nQuestion 13 of 16:\nHow would you prefer to receive help or information?\n\nType the numbers separated by commas (e.g. *1,3*)\n\n1. Community meetings\n2. Phone / WhatsApp\n3. Social media\n4. Radio\n5. In-person support centers\n6. Other",
+      "*Section F: Access*\n\nQuestion 14 of 17:\nHow would you prefer to receive help or information?\n\nType the numbers separated by commas (e.g. *1,3*)\n\n1. Community meetings\n2. Phone / WhatsApp\n3. Social media\n4. Radio\n5. In-person support centers\n6. Other",
     type: "multi_choice",
     choices: [
       "Community meetings",
@@ -138,7 +139,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "barriers",
     prompt:
-      "Question 14 of 16:\nWhat would stop people from using a new program or service?\n(e.g. cost, trust, distance, time, fear, lack of information)",
+      "Question 15 of 17:\nWhat would stop people from using a new program or service?\n(e.g. cost, trust, distance, time, fear, lack of information)",
     type: "text",
   },
 
@@ -146,7 +147,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "final_comments",
     prompt:
-      "*Section G: Final Comments*\n\nQuestion 15 of 16:\nIs there anything else you want to share about your community?",
+      "*Section G: Final Comments*\n\nQuestion 16 of 17:\nIs there anything else you want to share about your community?",
     type: "text",
   },
 
@@ -154,7 +155,7 @@ export const QUESTIONS: SurveyStep[] = [
   {
     key: "location",
     prompt:
-      "Question 16 of 16:\nLast step! Please share your location.\n(Tap the + button > Location > Send Your Current Location)",
+      "Question 17 of 17:\nLast step! Please share your location.\n(Tap the + button > Location > Send Your Current Location)",
     type: "location",
   },
 ];
@@ -231,6 +232,7 @@ function parseMultiChoiceInput(
 function buildSummary(answers: Record<string, string>): string {
   const lines: string[] = ["*Your Report Summary:*\n"];
   const labels: Record<string, string> = {
+    name: "Name",
     age: "Age",
     gender: "Gender",
     community: "Community",
@@ -286,7 +288,7 @@ export async function handleMessage(
     await upsertSession(phone, 0, {});
     await sendText(
       chatId,
-      "Welcome to the Community Survey! You'll answer 16 short questions.\n\nLet's begin:"
+      "Welcome to the Community Survey! You'll answer 17 short questions.\n\nLet's begin:"
     );
     await sendQuestion(chatId, QUESTIONS[0]);
     return;
@@ -368,7 +370,7 @@ export async function handleMessage(
   if (lowerText === "edit" && step >= QUESTIONS.length) {
     await sendText(
       chatId,
-      'Which question do you want to edit? Reply with the number (1-16).\nE.g. *"Edit 3"* to change your community.'
+      'Which question do you want to edit? Reply with the number (1-17).\nE.g. *"Edit 4"* to change your community.'
     );
     return;
   }
